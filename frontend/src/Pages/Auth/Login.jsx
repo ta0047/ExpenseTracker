@@ -17,9 +17,9 @@ const Login = () => {
       <div className="flex items-center justify-center min-h-screen">
         <form
           onSubmit={HandleLogin}
-          className="flex flex-col gap-4 w-[90%] max-w-md bg-white"
+          className="flex flex-col gap-4 w-[50%] shadow-[0_0_10px_rgba(0,0,0,0.7)] p-5 rounded-xl"
         >
-          <h1 className="text-2xl font-semibold text-center">LOGIN</h1>
+          <h1 className="text-2xl font-semibold text-center text-slate-600">LOGIN</h1>
 
           <Inputs
             type="email"
