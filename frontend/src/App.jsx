@@ -24,8 +24,5 @@ export default App
 
 const Root = () => {
   const isAuthenticated=!!localStorage.getItem("tokken")
-  return isAuthenticated ? 
-  (<Navigate to="/dashboard"/>)
-  :
-  (<Navigate to='/login'/>)
+  return isAuthenticated ? (<Navigate to="/dashboard"/>) : (<Navigate to='/login'/>)
 }
