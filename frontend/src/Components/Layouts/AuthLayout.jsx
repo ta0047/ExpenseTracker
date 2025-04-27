@@ -1,4 +1,6 @@
 import chart from '../../assets/images/chart.jpg'
+import coins from '../../assets/images/coins.jpg'
+import coins2 from '../../assets/images/coins2.jpg'
 import { FcBullish } from "react-icons/fc";
 function AuthLayout({ children }) {
     return (
@@ -15,7 +17,8 @@ function AuthLayout({ children }) {
 
                     <div className="w-48 h-48 rounded-tl-3xl rounded-br-3xl  bg-violet-400 absolute top-[510px] "></div>
 
-                    <img src={chart} alt="" className='rounded-xl z-[10] absolute top-80 w-[500px] h-72 left-[950px]' />
+                    <img src={coins2} alt="" 
+                    className='rounded-xl z-[10] absolute top-72 w-[500px] h-80 left-[950px]' />
 
                     <StatsInfoCard
                         icons={<FcBullish size={30} />}

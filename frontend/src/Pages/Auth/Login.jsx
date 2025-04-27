@@ -14,10 +14,10 @@ const Login = () => {
   }
   return (
     <AuthLayout>
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center mt-[15%]">
         <form
           onSubmit={HandleLogin}
-          className="flex flex-col gap-4 w-[50%] shadow-[0_0_10px_rgba(0,0,0,0.7)] p-5 rounded-xl"
+          className="flex flex-col gap-4 w-[45%] shadow-[0_0_10px_rgba(0,0,0,0.7)] p-5 rounded-xl"
         >
           <h1 className="text-2xl font-semibold text-center text-slate-600">LOGIN</h1>
 
@@ -40,7 +40,7 @@ const Login = () => {
 
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
-          <button className="bg-blue-600 text-white py-2">
+          <button className="btn btn-primary py-2">
             LOGIN
           </button>
 

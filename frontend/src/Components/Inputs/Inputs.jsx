@@ -8,10 +8,9 @@ const Inputs = ({ value, onChange, placeholder, label, type }) => {
     return (
         <div>
             <div className="w-full m-auto">
-                
             <label htmlFor="" className='text-lg'>{label}</label>
             <input
-                className='input input-box w-full'
+                className='input input-primary w-full'
                 type={type == 'password' ? setShowPassword ? 'text' : 'password' : type}
                 placeholder={placeholder}
                 value={value}
@@ -24,13 +23,15 @@ const Inputs = ({ value, onChange, placeholder, label, type }) => {
                     <>
                         {
                             ShowPassword ?
-                                (<IoEye size={20} className='cursor-pointer text-primary'
+                                (<IoEye size={20} className='cursor-pointer text-primary absolute top-[372px] left-[584px] z-10'
                                     onClick={() => ToggleShowPassword()}
                                 />)
                                 :
-                                (<IoEyeOff size={20} className='cursor-pointer text-primary'
+                                (
+                                <IoEyeOff size={20} className='cursor-pointer text-primary absolute top-[372px] left-[584px] z-10'
                                     onClick={() => ToggleShowPassword()}
-                                />)
+                                />
+                            )
                         }
                     </>
                 )
