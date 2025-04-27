@@ -23,12 +23,7 @@ function AuthLayout({ children }) {
                         value="2345578"
                         color="bg-white"
                     />
-
-
-
-
                 </div>
-
             </div>
         </>
     )
@@ -38,14 +33,16 @@ export default AuthLayout
 const StatsInfoCard = ({ icons, label, value, color }) => {
     return (
 
-        <div className={`rounded-lg w-96 absolute p-2 m-2 top-10 ${color} shadow-xl flex`}>
-            <div className="">
-                <div className="">{icons}</div>
+        <div className={`rounded-lg w-96 absolute p-2 m-5 top-10 ${color} shadow-xl flex`}>
+            <div className="p-2">
+                <div className="bg-violet-200 rounded-full p-3 ">{icons}</div>
             </div>
             <div className="">
-                <div className="">{label}</div>
-                <div className="">${value}</div>
-
+                <span className="text-slate-800 text-xl">{label}</span>
+                <div className="text-slate-800 text-xl">
+                    <span className='me-2'>$</span>
+                    <span>{value}</span>
+                </div>
             </div>
         </div>
     )

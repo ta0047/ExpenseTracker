@@ -1,6 +1,6 @@
 import React from 'react'
 import Login from './Pages/Auth/Login';
-import SingUp from './Pages/Auth/SignUp';
+import SignUp from './Pages/Auth/SignUp';
 import Home from './Pages/Dashboard/Home';
 import Income from './Pages/Dashboard/Income'
 import Expense from './Pages/Dashboard/Expense'
@@ -11,7 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Root />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SingUp />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Home />} />
         <Route path="/income" element={<Income />} />
         <Route path="/expense" element={<Expense />} />
