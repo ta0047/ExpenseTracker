@@ -8,17 +8,17 @@ const Inputs = ({ value, onChange, placeholder, label, type }) => {
     return (
         <div>
             <div className="w-full m-auto">
-            <label htmlFor="" className='text-lg'>{label}</label>
+            <label htmlFor="" className='text-lg text-slate-600'>{label}</label>
             <input
                 className='input input-primary w-full'
-                type={type == 'password' ? setShowPassword ? 'text' : 'password' : type}
+                type={type === 'password' ? (ShowPassword ? 'text' : 'password') : type}
                 placeholder={placeholder}
                 value={value}
                 onChange={(e) => onChange(e)}
             />
             </div>
             
-            {
+            {/* {
                 type === 'password' && (
                     <>
                         {
@@ -35,7 +35,7 @@ const Inputs = ({ value, onChange, placeholder, label, type }) => {
                         }
                     </>
                 )
-            }
+            } */}
 
         </div>
     )

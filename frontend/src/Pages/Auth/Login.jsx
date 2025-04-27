@@ -9,27 +9,23 @@ const Login = () => {
   const [error, seterror] = useState("")
 
   const Navigate = useNavigate();
-  const HandleLogin = () => {
-
+  const HandleLogin = async (e) => {
   }
   return (
     <AuthLayout>
       <div className="flex items-center justify-center mt-[15%]">
         <form
           onSubmit={HandleLogin}
-          className="flex flex-col gap-4 w-[45%] shadow-[0_0_10px_rgba(0,0,0,0.7)] p-5 rounded-xl"
+          className="flex flex-col gap-4 w-full shadow-[0_0_10px_rgba(0,0,0,0.7)] p-5 rounded-xl lg:w-[45%]"
         >
           <h1 className="text-2xl font-semibold text-center text-slate-600">LOGIN</h1>
-
           <Inputs
             type="email"
             value={email}
             onChange={({ target }) => setemail(target.value)}
             label="Email Address"
-            placeholder="abc@gmail.com"
-            
+            placeholder="abc@gmail.com"         
           />
-
           <Inputs
             type="password"
             value={password}
@@ -37,13 +33,10 @@ const Login = () => {
             label="Enter Password"
             placeholder="Strong password"
           />
-
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-
           <button className="btn btn-primary py-2">
             LOGIN
           </button>
-
           <p className="text-center text-sm text-gray-700">
             Don't have an account?{" "}
             <Link to="/SignUp" className="text-violet-700 hover:underline">
@@ -52,9 +45,6 @@ const Login = () => {
           </p>
         </form>
       </div>
-
-
-
     </AuthLayout>
   )
 }

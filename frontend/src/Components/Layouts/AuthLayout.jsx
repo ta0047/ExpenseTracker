@@ -19,7 +19,6 @@ function AuthLayout({ children }) {
 
                     <img src={coins2} alt="" 
                     className='rounded-xl z-[10] absolute top-72 w-[500px] h-80 left-[950px]' />
-
                     <StatsInfoCard
                         icons={<FcBullish size={30} />}
                         label="Track you income and expenses"
