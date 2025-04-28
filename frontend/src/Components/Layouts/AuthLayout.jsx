@@ -5,7 +5,15 @@ import { FcBullish } from "react-icons/fc";
 function AuthLayout({ children }) {
     return (
         <>
-            {children}
+            <div className="sm:flex">
+                <div className="w-1/2">
+                    {children}
+                </div>
+                <div className="w-1/2">
+                    <div className="border-[30px] w-52 h-52 rounded-3xl"></div>
+                </div>
+
+            </div>
         </>
     )
 }
