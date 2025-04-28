@@ -1,52 +1,48 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import AuthLayout from '../../Components/Layouts/AuthLayout'
-import { useNavigate } from 'react-router-dom'
-import Inputs from '../../Components/Inputs/Inputs'
-const Login = () => {
-  const [email, setemail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, seterror] = useState("")
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import AuthLayout from '../../Components/Layouts/AuthLayout';
 
-  const Navigate = useNavigate();
-  const HandleLogin = async (e) => {
-  }
+const Login = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    // Here you can call your API for authentication
+    // Example:
+    // const result = await loginUser(data.email, data.password);
+    // if (result.success) navigate('/dashboard');
+    // else setError("Invalid credentials");
+  };
+
   return (
     <AuthLayout>
-      <div className="flex items-center justify-center mt-[15%]">
-        <form
-          onSubmit={HandleLogin}
-          className="flex flex-col gap-4 w-full shadow-[0_0_10px_rgba(0,0,0,0.7)] p-5 rounded-xl lg:w-[45%]"
-        >
-          <h1 className="text-2xl font-semibold text-center text-slate-600">LOGIN</h1>
-          <Inputs
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div>
+          <label>Email</label>
+          <input
             type="email"
-            value={email}
-            onChange={({ target }) => setemail(target.value)}
-            label="Email Address"
-            placeholder="abc@gmail.com"         
+            {...register("email", { required: "Email is required" })}
+            className="border p-2 w-full"
           />
-          <Inputs
-            type="password"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-            label="Enter Password"
-            placeholder="Strong password"
-          />
-          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-          <button className="btn btn-primary py-2">
-            LOGIN
-          </button>
-          <p className="text-center text-sm text-gray-700">
-            Don't have an account?{" "}
-            <Link to="/SignUp" className="text-violet-700 hover:underline">
-              Signup
-            </Link>
-          </p>
-        </form>
-      </div>
-    </AuthLayout>
-  )
-}
+          {errors.email && <span className="">{errors.email.message}</span>}
+        </div>
 
-export default Login
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            {...register("password", { required: "Password is required" })}
+            className="border p-2 w-full"
+          />
+          {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
+        </div>
+
+        <input type="submit" value="Login" className="bg-blue-500 text-white py-2 px-4 rounded" />
+      </form>
+    </AuthLayout>
+  );
+};
+
+export default Login;

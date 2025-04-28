@@ -1,57 +1,64 @@
-import React, { useState } from 'react'
-import AuthLayout from '../../Components/Layouts/AuthLayout'
-import {useNavigate} from 'react-router-dom'
-import coins from '../../assets/images/coins.jpg'
-import Inputs from '../../Components/Inputs/Inputs'
+import React, { useState } from 'react';
+import AuthLayout from '../../Components/Layouts/AuthLayout';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+
 const SignUp = () => {
-  const [profilePic, setprofilePic] = useState(null)
-  const [fullName, setFullName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
-  const navigate=useNavigate()
-  const handleSignUp= async (e) => {}
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    
+  };
+
   return (
     <AuthLayout>
-      <div className="lg:w-[100%] h-auto md:h-full md:mt-0 flex flex-col justify-center" style={{ backgroundImage: "url('../../assets/images/coins.jpg')" }}>
-      <p className='text-xm text-slate-500 mt-5 mb-5'>Join us today by entering you details bellow
-      <h3 className='text-3xl text-slate-700'>Create an Account</h3>
-      </p>
-        
-       
-       <form onSubmit={handleSignUp}>
-       <div className="w-2/3 grid lg:grid-cols-2 gap-2">
-        <Inputs
-        type="text"
-          label={"Enter Full Name"}
-          placeholder={"Full Name Please"}
-          value={fullName}
-          onChange={({ target }) => setFullName(target.value)}
-        />
-        <Inputs
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div>
+          <label>First Name</label>
+          <input
+            type="text"
+            {...register("firstName", { required: "First name is required" })}
+            className="border p-2 w-full"
+          />
+          {errors.firstName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+        </div>
+
+        <div>
+          <label>Last Name</label>
+          <input
+            type="text"
+            {...register("lastName", { required: "Last name is required" })}
+            className="border p-2 w-full"
+          />
+          {errors.lastName && <span className="text-red-500 text-sm">{errors.lastName.message}</span>}
+        </div>
+
+        <div>
+          <label>Email</label>
+          <input
             type="email"
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
-            label="Email Address"
-            placeholder="abc@gmail.com"         
+            {...register("email", { required: "Email is required" })}
+            className="border p-2 w-full"
           />
-        <Inputs
+          {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+        </div>
+
+        <div>
+          <label>Password</label>
+          <input
             type="password"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-            label="Enter Strong Password"
-            placeholder="Password"         
+            {...register("password", { required: "Password is required" })}
+            className="border p-2 w-full"
           />
-       </div>
-          <button className='btn btn-primary mt-5'>SIGNUP</button>
-       </form>
+          {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
+        </div>
 
-
-      </div>
-
-
+        <input type="submit" value="Sign Up" className="bg-green-500 text-white py-2 px-4 rounded" />
+      </form>
     </AuthLayout>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;
