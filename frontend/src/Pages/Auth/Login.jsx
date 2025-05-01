@@ -18,29 +18,33 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            {...register("email", { required: "Email is required" })}
-            className="border p-2 w-full"
-          />
-          {errors.email && <span className="">{errors.email.message}</span>}
-        </div>
+      <div className="w-80 mt-56 m-auto p-4 shadow-[0_0_10px_rgba(0,0,0,0.5)] rounded-xl">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <h1 className='text-3xl text-slate-600 text-center'>LOGIN</h1>
+          <div>
 
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            {...register("password", { required: "Password is required" })}
-            className="border p-2 w-full"
-          />
-          {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
-        </div>
+            <label>Email</label>
+            <input
+              type="email"
+              {...register("email", { required: "Email is required" })}
+              className="border p-2 w-full"
+            />
+            {errors.email && <span className="">{errors.email.message}</span>}
+          </div>
 
-        <input type="submit" value="Login" className="bg-blue-500 text-white py-2 px-4 rounded" />
-      </form>
+          <div>
+            <label>Password</label>
+            <input
+              type="password"
+              {...register("password", { required: "Password is required" })}
+              className="border p-2 w-full"
+            />
+            {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
+          </div>
+
+          <input type="submit" value="Login" className="bg-blue-500 text-white py-2 px-4 rounded" />
+        </form>
+      </div>
     </AuthLayout>
   );
 };
