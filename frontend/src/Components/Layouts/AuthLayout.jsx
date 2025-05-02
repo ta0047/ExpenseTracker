@@ -10,14 +10,12 @@ function AuthLayout({ children }) {
                 </div>
                 <div className="hidden md:block w-1/2 overflow-hidden relative">
                     <div className="border-[30px] w-52 h-52 rounded-3xl border-slate-300 absolute top-52 -right-16 -z-10"></div>
-
                     <div className="w-52 h-52 rounded-3xl bg-slate-200 absolute -top-16 right-96 -z-10"></div>
-
                     <div className="">
                         <StatsInfoCard
                             icons={<FcBullish size={30}/>}
                             value={458752}
-                            color={"bg-indigo-200"}
+                            color={"bg-indigo-300"}
                             label={"Track Your Expenses"}
                         />
                         <img src={coins2} className='z-10 h-[600px] w-[850px] border-[50px] rounded-3xl border-indigo-200 ' alt="" />
@@ -30,12 +28,9 @@ function AuthLayout({ children }) {
     )
 }
 export default AuthLayout
-
- 
-
 const StatsInfoCard = ({ icons, label, value, color }) => {
     return (
-        <div className={`rounded-lg absolute p-2 m-5 top-20 ${color} shadow-xl flex`}>
+        <div className={`rounded-lg w-80 absolute p-2 m-5 top-20 ${color} shadow-xl flex `}>
             <div className="p-2">
                 <div className="bg-violet-200 rounded-full p-3 ">{icons}</div>
             </div>

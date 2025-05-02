@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthLayout from '../../Components/Layouts/AuthLayout';
-
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -48,7 +47,12 @@ const Login = () => {
             />
             {errors.password && <p className="text-red-600">{errors.password.message}</p>}
           </div>
+          <p>
+
           <button type='submit' className='btn btn-primary'>LOGIN</button>
+          <span className='ms-2'>Not register?</span>
+          <Link to='/signup' className='link link-primary ms-2'>Signup</Link>
+          </p>
         </form>
       </div>
     </AuthLayout>
