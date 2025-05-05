@@ -1,11 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { FaUserCircle } from "react-icons/fa";
 import { MdDelete, MdOutlineFileUpload } from "react-icons/md";
+
 const ProfilePhotoSelector = ({ image, setImage }) => {
-  useEffect(() => {
-    setpreviewUrl(null);
-  }, []);
+  useEffect(() => {setpreviewUrl(null);}, []);
+
   const inputRef = useRef(null)
+  
   const [previewUrl, setpreviewUrl] = useState(null)
 
   const handleImageChange = (event) => {
@@ -32,15 +33,15 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
         className='hidden'
       />
       <div className="relative w-32 h-32">
-      {previewUrl ? (
-    <img
-      src={previewUrl}
-      alt="Profile Pic"
-      className="w-full h-full object-cover rounded-full"
-    />
-  ) : (
-    <FaUserCircle className="w-full h-full text-gray-400" />
-  )}
+        {previewUrl ? (
+          <img
+            src={previewUrl}
+            alt="Profile Pic"
+            className="w-full h-full object-cover rounded-full"
+          />
+        ) : (
+          <FaUserCircle className="w-full h-full text-gray-400" />
+        )}
         <button
           className="btn btn-xs bg-indigo-500 rounded-full text-slate-100 absolute bottom-0 right-0"
           onClick={previewUrl ? handleRemoveImage : onChooseFile}
